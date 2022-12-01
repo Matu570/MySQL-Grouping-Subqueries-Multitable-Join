@@ -15,3 +15,7 @@ SELECT * FROM enters;
 INSERT INTO enters VALUES(NULL, 3, 1, "GTA Guide", "GTA", CURDATE());
 SELECT name, last_name FROM users WHERE id_user IN (SELECT user_id FROM enters WHERE title LIKE "%GTA%");
 
+-- Excersise 3:
+SELECT name FROM users WHERE id_user IN (SELECT id_user FROM enters WHERE category_id=1);
+
+SELECT title FROM enters WHERE category_id IN (SELECT id_category FROM categories WHERE name_category = 'action');
