@@ -18,4 +18,12 @@ SELECT name, last_name FROM users WHERE id_user IN (SELECT user_id FROM enters W
 -- Excersise 3:
 SELECT name FROM users WHERE id_user IN (SELECT id_user FROM enters WHERE category_id=1);
 
-SELECT title FROM enters WHERE category_id IN (SELECT id_category FROM categories WHERE name_category = 'action');
+SELECT category_id, title FROM enters WHERE category_id IN (SELECT id_category FROM categories WHERE name_category = 'action');
+SELECT category_id, title FROM enters WHERE category_id IN (SELECT id_category FROM categories WHERE name_category = 'sport');
+
+-- Excersise 4:
+-- Display the categories with more of three enters:
+SELECT name_category FROM categories WHERE id_category IN (SELECT category_id FROM enters GROUP BY category_id HAVING COUNT(category_id)>=3);
+
+-- Excersise 5:
+-- Display all the enters
