@@ -26,4 +26,12 @@ SELECT category_id, title FROM enters WHERE category_id IN (SELECT id_category F
 SELECT name_category FROM categories WHERE id_category IN (SELECT category_id FROM enters GROUP BY category_id HAVING COUNT(category_id)>=3);
 
 -- Excersise 5:
--- Display all the enters
+-- Show users who created posts on Tuesdays.
+SELECT * FROM users WHERE id_user IN(SELECT user_id FROM enters WHERE DAYOFWEEK(date)=3);
+
+-- Excersise 6:
+-- Show the categories without posts.
+SELECT name_category FROM categories WHERE id_category NOT IN (SELECT user_id FROM enters);
+
+
+
